@@ -71,10 +71,14 @@ def read_heightmap(path):
     """Return (n, list of float 0..1) for the top mip of an R16 heightmap."""
     data = Path(path).read_bytes()
     (ver, w, h, depth, mips, arr, fmt, _), _ = _rtxt(data)
-    if fmt != 36 or w != h:
+    # 36 = R16 UNORM (0..1); 34 = R16 FLOAT, used as-is (1_4battleofnabooa:
+    # values -0.005..0.048, negatives only make sense as half floats).
+    if fmt not in (34, 36) or w != h:
         raise ValueError(f'Expected square R16 heightmap, got {w}x{h} format {fmt}')
     payload = sum(max(1, w >> k) * max(1, h >> k) * 2 for k in range(mips))
     off = len(data) - payload
+    if fmt == 34:
+        return w, list(struct.unpack_from('<%de' % (w * h), data, off))
     vals = struct.unpack_from('<%dH' % (w * h), data, off)
     return w, [v / 65535.0 for v in vals]
 
