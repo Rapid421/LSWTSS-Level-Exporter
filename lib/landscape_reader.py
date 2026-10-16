@@ -22,7 +22,10 @@ from pathlib import Path
 
 LANDDATA_RE = re.compile(rb'[\x20-\x7e]{8,240}?/([0-9A-Fa-f]{32})/[Ll]andscape\.landscape_data\x00')
 MATERIAL_RE = re.compile(rb'[\x20-\x7e]{6,240}?\.material\x00')
-LAYER_PARAM_RE = re.compile(rb'\x05\x00\x00\x00Data\x00(.{16})', re.S)
+# Each layer lists its textures as (reference, role name) pairs: Data, Albedo,
+# Normal in any order. The four layer floats (x = UV scale) follow the last
+# role, i.e. the one NOT followed by another texture reference (u32 3, u8 1).
+LAYER_PARAM_RE = re.compile(rb'(?:\x05\x00\x00\x00Data|\x07\x00\x00\x00Albedo|\x07\x00\x00\x00Normal)\x00(?!\x03\x00\x00\x00\x01)(.{16})', re.S)
 
 
 def read_component(raw):
@@ -150,7 +153,7 @@ def prepare_landscape(comp, folder, material_bytes, out_dir, convert, max_res=10
             images['weights'].append(str(dest))
     params = material_parameters(material_bytes) if material_bytes else {
         'uv_repeat': 64.0, 'height_blend_factor': 16.0, 'source': 'default'}
-    scales = [p[0] if p and 0 < p[0] < 1000 else 1.0 for p in comp['layer_params'][:layers]]
+    scales = [p[0] if p and 1e-3 < p[0] < 1000 else 1.0 for p in comp['layer_params'][:layers]]
     scales += [1.0] * (layers - len(scales))
     return {'resolution': n, 'source_resolution': n_src, 'heights': str(out_dir / 'heights.f32'),
             'holes': str(holes_path) if holes_path else None, 'layers': layers,
