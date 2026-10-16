@@ -388,18 +388,20 @@ def main():
         paths=sorted({p.replace('\\','/') for p in paths if not (root/p.replace('\\','/')).exists()})
         if not paths:return
         listpath=out/(label+'-extract-list.json');listpath.write_text(json.dumps(paths),encoding='utf-8')
-        # One extractor at a time per shared cache (parallel batch exports).
-        lock=cache/'extract.lock';import os,time
-        for _ in range(7200):
-            try:fd=os.open(str(lock),os.O_CREAT|os.O_EXCL|os.O_WRONLY);break
-            except FileExistsError:
-                try:
-                    if time.time()-lock.stat().st_mtime>3600:lock.unlink(missing_ok=True)
-                except FileNotFoundError:pass  # released meanwhile
-                time.sleep(.5)
-        else:raise RuntimeError('Timed out waiting for the extraction lock')
+        # One extractor at a time per shared cache. An OS byte-range lock on an
+        # open handle is released by Windows when the holder exits or is killed
+        # (a cancelled export can no longer leave a stale lock behind).
+        import os,time,msvcrt
+        lockfile=open(cache/'extract.lock','a+b')
+        for _ in range(14400):
+            try:lockfile.seek(0);msvcrt.locking(lockfile.fileno(),msvcrt.LK_NBLCK,1);break
+            except OSError:time.sleep(.5)
+        else:lockfile.close();raise RuntimeError('Timed out waiting for another export to finish extracting')
         try:subprocess.run([str(reader),str(game),str(cache),'@'+str(listpath),'extract'],check=True,cwd=str(game),env=reader_env(game),creationflags=0x08000000 if sys.platform=='win32' else 0)
-        finally:os.close(fd);lock.unlink(missing_ok=True)
+        finally:
+            try:lockfile.seek(0);msvcrt.locking(lockfile.fileno(),msvcrt.LK_UNLCK,1)
+            except OSError:pass
+            lockfile.close()
     extract([p.as_posix() for p in scenes],'scene')
     # Follow nttSceneGraphReferenceComponent links. A level's root scene
     # references its layers (and reused art from other folders, e.g. story

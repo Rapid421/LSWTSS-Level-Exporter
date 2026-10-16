@@ -16,7 +16,7 @@ import time
 from pathlib import Path
 
 APP_NAME = 'LSWTSS Level Exporter'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 FROZEN = getattr(sys, 'frozen', False)
 # Bundled data (build_blend.py, lib/, ArchiveReader) lives beside the code.
 DATA = Path(getattr(sys, '_MEIPASS', Path(__file__).resolve().parent))
