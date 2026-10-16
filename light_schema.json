@@ -1,0 +1,426 @@
+[
+  [
+    "Editor Only Light",
+    "Char"
+  ],
+  [
+    "GI Saved Bake Hash",
+    "Int"
+  ],
+  [
+    "Include In GI Volumes",
+    "Char"
+  ],
+  [
+    "Include In Lightmapping",
+    "Char"
+  ],
+  [
+    "Include In Probes",
+    "Char"
+  ],
+  [
+    "Exclude From GI Volumes",
+    "Char"
+  ],
+  [
+    "Exclude From Lightmapping",
+    "Char"
+  ],
+  [
+    "Exclude From Probes",
+    "Char"
+  ],
+  [
+    "Type",
+    "Int"
+  ],
+  [
+    "Shading Model",
+    "Char"
+  ],
+  [
+    "Shadow Cast NXG",
+    "Char"
+  ],
+  [
+    "Shadow Cast DX11",
+    "Char"
+  ],
+  [
+    "Shadow Cast DX12",
+    "Char"
+  ],
+  [
+    "Base Color",
+    "Colour3"
+  ],
+  [
+    "Second Color",
+    "Colour3"
+  ],
+  [
+    "Directional - Use Second Color",
+    "Char"
+  ],
+  [
+    "Light Contributions To Bake",
+    "Int"
+  ],
+  [
+    "Bulb Diameter",
+    "Float"
+  ],
+  [
+    "Apparent Angular Diameter",
+    "Float"
+  ],
+  [
+    "Intensity",
+    "Float"
+  ],
+  [
+    "HDR Intensity Multiplier",
+    "Float"
+  ],
+  [
+    "Radius",
+    "Float"
+  ],
+  [
+    "Length",
+    "Float"
+  ],
+  [
+    "Lock Radius To Intensity",
+    "Char"
+  ],
+  [
+    "Lit Fog",
+    "Char"
+  ],
+  [
+    "Participate in Alpha Lighting",
+    "Char"
+  ],
+  [
+    "Shadow Casting Filter",
+    "Int"
+  ],
+  [
+    "Shadow Casting Filter NXG",
+    "Int"
+  ],
+  [
+    "Spot Radial Falloff",
+    "Char"
+  ],
+  [
+    "Spot Radial Near Size",
+    "Float"
+  ],
+  [
+    "Spot Far Plane",
+    "Float"
+  ],
+  [
+    "Spot Near Plane",
+    "Float"
+  ],
+  [
+    "Spot FOV",
+    "Float"
+  ],
+  [
+    "Spot Aspect Ratio",
+    "Float"
+  ],
+  [
+    "Dynamic Cascades Count",
+    "Int"
+  ],
+  [
+    "Shadow Method (Dir)",
+    "Int"
+  ],
+  [
+    "Shadow Method (Point)",
+    "Int"
+  ],
+  [
+    "Shadow Falloff Start (NXG)",
+    "Float"
+  ],
+  [
+    "Shadow Falloff Start (DX11)",
+    "Float"
+  ],
+  [
+    "Shadow Falloff Range (NXG)",
+    "Float"
+  ],
+  [
+    "Shadow Falloff Range (DX11)",
+    "Float"
+  ],
+  [
+    "Shadows on DX11 Only",
+    "Char"
+  ],
+  [
+    "Whole Shadow Fade",
+    "Char"
+  ],
+  [
+    "Discard Shadow Casters behind light",
+    "Char"
+  ],
+  [
+    "Occluder Pixel Threshold 0",
+    "Float"
+  ],
+  [
+    "Occluder Pixel Threshold 1",
+    "Float"
+  ],
+  [
+    "Occluder Pixel Threshold 2",
+    "Float"
+  ],
+  [
+    "Occluder Pixel Threshold 3",
+    "Float"
+  ],
+  [
+    "Light Viewspace Falloff Start (NXG)",
+    "Float"
+  ],
+  [
+    "Light Viewspace Falloff Start (DX11)",
+    "Float"
+  ],
+  [
+    "Light Viewspace Falloff Range (NXG)",
+    "Float"
+  ],
+  [
+    "Light Viewspace Falloff Range (DX11)",
+    "Float"
+  ],
+  [
+    "Shadow Range 0",
+    "Float"
+  ],
+  [
+    "Shadow Range 1",
+    "Float"
+  ],
+  [
+    "Shadow Range 2",
+    "Float"
+  ],
+  [
+    "Shadow Range 3",
+    "Float"
+  ],
+  [
+    "Shadow Range 0 (NXG)",
+    "Float"
+  ],
+  [
+    "Shadow Range 1 (NXG)",
+    "Float"
+  ],
+  [
+    "Shadow Range 2 (NXG)",
+    "Float"
+  ],
+  [
+    "Shadow Range 3 (NXG)",
+    "Float"
+  ],
+  [
+    "Shadow Near Clip",
+    "Float"
+  ],
+  [
+    "Shadow Near Clip (NXG)",
+    "Float"
+  ],
+  [
+    "Fizzle Fade Shadows",
+    "Char"
+  ],
+  [
+    "Additional 2sided Z Bias",
+    "Float"
+  ],
+  [
+    "Soft Shadows (NXG)",
+    "Char"
+  ],
+  [
+    "Soft Shadows (DX11)",
+    "Char"
+  ],
+  [
+    "Soft Shadows Overlap",
+    "Float"
+  ],
+  [
+    "Soft Shadows Overlap (NXG)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Enabled (NXG)",
+    "Char"
+  ],
+  [
+    "Screen Space Shadows Enabled (DX11)",
+    "Char"
+  ],
+  [
+    "Screen Space Shadows Step Count (NXG)",
+    "Int"
+  ],
+  [
+    "Screen Space Shadows Step Count (DX11)",
+    "Int"
+  ],
+  [
+    "Screen Space Shadows Range (NXG)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Range (DX11)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Threshold (NXG)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Threshold (DX11)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Translucency Bias (NXG)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Translucency Bias (DX11)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Max Fade Dist (NXG)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Max Fade Dist (DX11)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Start Fade Dist (NXG)",
+    "Float"
+  ],
+  [
+    "Screen Space Shadows Start Fade Dist (DX11)",
+    "Float"
+  ],
+  [
+    "Projected Texture U Scale",
+    "Float"
+  ],
+  [
+    "Projected Texture V Scale",
+    "Float"
+  ],
+  [
+    "Projected Texture U Offset",
+    "Float"
+  ],
+  [
+    "Projected Texture V Offset",
+    "Float"
+  ],
+  [
+    "Project on World Y Axis",
+    "Char"
+  ],
+  [
+    "Apply Spot Radial Falloff to Texture",
+    "Char"
+  ],
+  [
+    "Spot Negative Distance",
+    "Float"
+  ],
+  [
+    "Use Non-PBR falloff",
+    "Char"
+  ],
+  [
+    "Non-PBR Falloff Factor",
+    "Float"
+  ],
+  [
+    "Shadow Z Bias",
+    "Float"
+  ],
+  [
+    "Downwards Shadows Only",
+    "Char"
+  ],
+  [
+    "ShadowMap Res (DX9)",
+    "Int"
+  ],
+  [
+    "ShadowMap Res (DX11)",
+    "Int"
+  ],
+  [
+    "Fixed Spread (mm) (NXG)",
+    "Float"
+  ],
+  [
+    "Fixed Spread (mm)",
+    "Float"
+  ],
+  [
+    "Camera Relative",
+    "Char"
+  ],
+  [
+    "Translucency Enabled",
+    "Char"
+  ],
+  [
+    "Translucency Exponent",
+    "Float"
+  ],
+  [
+    "Translucency Scale",
+    "Float"
+  ],
+  [
+    "Translucency Normal Contribution",
+    "Float"
+  ],
+  [
+    "Translucency Ambient",
+    "Float"
+  ],
+  [
+    "Portal Room NEW",
+    "ClassObject"
+  ],
+  [
+    "Static For Portals",
+    "Char"
+  ],
+  [
+    "Ignore Portals",
+    "Char"
+  ]
+]

@@ -1,0 +1,12 @@
+LSWTSS Level Exporter 0.1.0 - third-party components
+
+- BrickVault (TTGames DAT archive reader, C#): compiled into _internal/ArchiveReader/ArchiveReader.exe
+  to read the user's installed game archives.
+- Oodle (oo2core_8_win64.dll): NOT included. It is loaded at run time from the user's own
+  LEGO Star Wars: The Skywalker Saga installation folder.
+- .NET runtime (self-contained in ArchiveReader.exe), Microsoft, MIT licence.
+- Python 3.12 (PSF licence), Pillow (MIT-CMU licence), NumPy (BSD licence), Tcl/Tk (BSD-style),
+  packaged with PyInstaller (GPL with bootloader exception).
+
+No game data is included. LEGO, Star Wars and The Skywalker Saga are trademarks of their
+respective owners. This unofficial tool is not affiliated with or endorsed by them.
